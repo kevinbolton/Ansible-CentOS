@@ -1,2 +1,11 @@
 ---
 # defaults file for Ansible-CentOS
+
+enable_basic_packages: false
+enable_xwindows_packages: false
+enable_working_packages: false
+
+# For git_config
+# https://docs.ansible.com/ansible/devel/modules/openssh_keypair_module.html
+host_key_algorithms: ed25519
+github_access_token: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

@@ -1,0 +1,24 @@
+---
+# Package installation tasks file for Ansible-CentOS
+
+- name: Install basic packages
+  yum:
+    name:
+      - tree
+      - vim
+    state: present
+  when: enable_basic_packages
+
+- name: Install the 'Gnome desktop' environment group
+  yum:
+    name: "@^gnome-desktop-environment"
+    state: present
+  when: enable_xwindows_packages
+
+- name: Install working packages
+  yum:
+    name:
+      - ansible
+      - git
+    state: present
+  when: enable_working_packages
