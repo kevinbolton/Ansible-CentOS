@@ -1,38 +1,38 @@
-Role Name
-=========
-
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
-Role Variables
---------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
-
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[Directory Layout]
+  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html#content-organization
+  # https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html
+  filter_plugins/       # if any custom filter plugins, put them here (optional)
+  inventories/
+    Dev/
+    Prod/
+    Staff/
+      hosts             # inventory file for Staff PC
+      group_vars/
+        InfoSec.yml     # here we assign variables to InfoSec groups
+      host_vars/
+        InfoSecLab.yml  # here we assign variables to InfoSec's Lab systems
+    Test/
+    UAT/
+  library/              # if any custom modules, put them here (optional)
+  module_utils/         # if any custom module_utils to support modules, put them here (optional)
+  roles/
+    InfoSecLab/         # this hierarchy represents a "role"
+      defaults/         # default lower priority variables for this role
+        main.yml        # When in use, each directory must contain a main.yml file.
+      files/            # Contains files which can be deployed via this role.
+      handlers/         # Contains handlers, which may be used by this role or even anywhere outside this role.
+        main.yml        # handlers file
+      library/          # roles can also include custom modules
+      lookup_plugins/   # or other types of plugins, like lookup in this case
+      meta/             # Defines some meta data for this role. any role dependencies listed therein will be added to the list of roles, subject to tag filtering.
+        main.yml        # role dependencies
+      module_utils/     # roles can also include custom module_utils
+      tasks/            # Contains the main list of tasks to be executed by the role.
+        main.yml        # tasks file can include smaller files if warranted
+      templates/        # files for use with the template resource
+      test/
+      vars/             # Other variables for the role.
+        main.yml        # variables associated with this role
+  README.md
+  site.yml              # master playbook
+  staff.yml             # playbook for staff tier

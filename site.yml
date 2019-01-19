@@ -1,0 +1,3 @@
+---
+# All servers and PCs within a company
+- import_playbook: staff.yml
