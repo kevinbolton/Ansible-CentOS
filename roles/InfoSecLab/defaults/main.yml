@@ -1,9 +1,9 @@
 ---
 # defaults file for Ansible-CentOS
 
-enable_basic_packages: false
-enable_xwindows_packages: false
-enable_working_packages: false
+enable_basic_packages: true
+enable_xwindows_packages: true
+enable_working_packages: true
 
 # For git_config
 # https://docs.ansible.com/ansible/devel/modules/openssh_keypair_module.html
