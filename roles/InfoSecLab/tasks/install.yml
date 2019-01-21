@@ -8,12 +8,14 @@
       - vim
     state: present
   when: enable_basic_packages
+  become: yes
 
 - name: Install the 'Gnome desktop' environment group
   yum:
     name: "@^gnome-desktop-environment"
     state: present
   when: enable_xwindows_packages
+  become: yes
 
 - name: Install working packages
   yum:
@@ -22,3 +24,4 @@
       - git
     state: present
   when: enable_working_packages
+  become: yes
