@@ -1,7 +1,7 @@
 ---
-#- name: Get the sshd config content
-#  shell: cat "{{ sshd_config_path }}"
-#  register: sshd_config_content
+- name: Get the sshd config content
+  shell: cat "{{ sshd_config_path }}"
+  register: sshd_config_content
 
 - name: Remove unsafe public-key cryptosystems
   lineinfile:
@@ -10,6 +10,6 @@
     state: present
     regexp: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
     backup: yes
-    line: '#HostKey \/etc\/ssh\/ssh_host_ecdsa_key'
+    line: '#HostKey /etc/ssh/ssh_host_ecdsa_key'
   become: yes
 ...
