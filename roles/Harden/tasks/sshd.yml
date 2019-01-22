@@ -2,10 +2,10 @@
 - name: read the passwd file
   shell: cat "{{ sshd_config_path }}"
   register: user_accts
-  become: yes
+  become: yesf
 
 - name: a task that only happens if the user exists
-  when: user_accts.stdout.find('HostKey /etc/ssh/ssh_host_ecdsa_key') != -1
+  when: user_accts.stdout.find('#HostKey /etc/ssh/ssh_host_ecdsa_key') != -1
   debug: msg="user hillsy exists"
 
 - name: Ansible find file examples
