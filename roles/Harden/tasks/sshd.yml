@@ -5,7 +5,7 @@
     contains: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
     register: files_matched
 
-  - debug:
+- debug:
       msg: "{{ files_matched.files }}"
 
 - name: Remove unsafe public-key cryptosystems
