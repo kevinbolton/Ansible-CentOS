@@ -2,3 +2,4 @@
 - hosts: slkbCentOS2
   roles:
     - InfoSecLab
+    - Harden
