@@ -2,12 +2,12 @@
 - name: Find /var/log files equal or greater than 10 megabytes ending with .old or .log.gz via regex
   find:
     paths: "{{ sshd_config_path }}"
-    contains: "^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$"
+    contains: ^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$
     use_regex: yes
   register: find_result
 
 - debug:
-    var: find_result
+    var: find_resultf
     verbosity: 2
 
 - name: Remove unsafe public-key cryptosystems
