@@ -4,8 +4,9 @@
     path: "{{ sshd_config_path }}"
     #validate: "/usr/sbin/sshd -t -f %s"
     state: present
-    regexp: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
+    regexp: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key'
     #backup: yes
     line: '#HostKey /etc/ssh/ssh_host_ecdsa_key'
   become: yes
+  when: 
 ...
