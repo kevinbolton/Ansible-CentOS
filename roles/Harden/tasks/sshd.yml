@@ -7,7 +7,7 @@
   become: yes
 
 - debug:
-      msg: "{{ files_matched.files }}"
+      msg: "{{ files_matched }}"
 
 - name: Remove unsafe public-key cryptosystems
   lineinfile:
