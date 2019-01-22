@@ -20,12 +20,12 @@
       msg: "{{ files_matched }}"
 
 - name: Remove unsafe public-key cryptosystems
-  lineinfile:
+  replace:
     path: "{{ sshd_config_path }}"
     #validate: "/usr/sbin/sshd -t -f %s"
-    state: present
+    #state: present
     regexp: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
     #backup: yes
-    line: '#HostKey /etc/ssh/ssh_host_ecdsa_key'
+    replace: '#HostKey /etc/ssh/ssh_host_ecdsa_key'
   become: yes
 ...
