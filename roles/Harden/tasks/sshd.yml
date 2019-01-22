@@ -3,7 +3,8 @@
   find:
     paths: "{{ sshd_config_path }}"
     contains: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
-    register: files_matched
+  register: files_matched
+  beome: yes
 
 - debug:
       msg: "{{ files_matched.files }}"
