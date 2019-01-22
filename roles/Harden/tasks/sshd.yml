@@ -28,5 +28,4 @@
     #backup: yes
     line: '#HostKey /etc/ssh/ssh_host_ecdsa_key'
   become: yes
-  when: 
 ...
