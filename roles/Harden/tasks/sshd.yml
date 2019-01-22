@@ -12,4 +12,5 @@
     name: sshd
     state: restarted
   when: examplesoftware.changed
+  become: yes
 ...
