@@ -7,7 +7,7 @@
   register: find_result
 
 - debug:
-    var: find_resultf
+    var: find_result
     verbosity: 2
 
 - name: Remove unsafe public-key cryptosystems
