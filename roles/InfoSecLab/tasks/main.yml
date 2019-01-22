@@ -2,4 +2,5 @@
 # Main tasks file for Ansible-CentOS
 
 - import_tasks: install.yml
+- import_tasks: AnsibleValutTest.yml
 #- import_tasks: git_config.yml
