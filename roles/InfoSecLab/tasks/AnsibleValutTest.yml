@@ -2,8 +2,8 @@
 
 - name: Create pwd file
   copy:
-      dest: "/home/asb/pwd.txt"
-  content: !vault |
+    dest: "/home/asb/pwd.txt"
+    content: !vault |
           $ANSIBLE_VAULT;1.2;AES256;kb
           66386231313334643732373536366437306230303265623066386536636466393532613861623563
           3263343165366233646535303561666233646361303035300a313465396365346535646138643238
