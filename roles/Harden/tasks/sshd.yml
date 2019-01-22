@@ -1,8 +1,14 @@
 ---
-- name: Get the sshd config content
-  shell: cat "{{ sshd_config_path }}"
-  register: sshd_config_content
-  become: yes
+- name: Find /var/log files equal or greater than 10 megabytes ending with .old or .log.gz via regex
+  find:
+    paths: "{{ sshd_config_path }}"
+    contains: "^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$"
+    use_regex: yes
+  register: find_result
+
+- debug:
+    var: find_result
+    verbosity: 2
 
 - name: Remove unsafe public-key cryptosystems
   lineinfile:
