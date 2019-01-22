@@ -1,10 +1,19 @@
 ---
+- name: Ansible find file examples
+  find:
+    paths: "{{ sshd_config_path }}"
+    contains: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
+    register: files_matched
+
+  - debug:
+      msg: "{{ files_matched.files }}"
+
 - name: Remove unsafe public-key cryptosystems
   lineinfile:
     path: "{{ sshd_config_path }}"
     #validate: "/usr/sbin/sshd -t -f %s"
     state: present
-    regexp: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key'
+    regexp: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
     #backup: yes
     line: '#HostKey /etc/ssh/ssh_host_ecdsa_key'
   become: yes
