@@ -5,12 +5,12 @@
     regexp: '^HostKey \/etc\/ssh\/ssh_host_ecdsa_key$'
     replace: '#HostKey /etc/ssh/ssh_host_ecdsa_key'
   become: yes
-  register: examplesoftware
+  register: sshd_config_updated
 
-- name: restart service if new version is deployed
+- name: restart sshd if new version is deployed
   service:
     name: sshd
     state: restarted
-  when: examplesoftware.changed
+  when: sshd_config_updated.changed
   become: yes
 ...
